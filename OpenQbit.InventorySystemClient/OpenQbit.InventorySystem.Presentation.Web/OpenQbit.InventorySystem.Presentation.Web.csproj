@@ -203,6 +203,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Batch.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Damage.cs" />
     <Compile Include="Models\Distributer.cs" />
     <Compile Include="Models\Item.cs" />
