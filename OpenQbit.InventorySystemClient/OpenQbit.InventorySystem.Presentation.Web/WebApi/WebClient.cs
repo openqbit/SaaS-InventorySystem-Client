@@ -14,10 +14,32 @@ namespace OpenQbit.InventorySystem.Presentation.Web.WebApi
     {
         HttpClient _client;
         JavaScriptSerializer _jsonSerializer = new JavaScriptSerializer();
+        string url = "http://localhost:51622/api";
 
         public WebClient()
         {
             _client = new HttpClient();
+        }
+
+        public async Task<bool> LoginCustomer(string userName,string password)
+        {
+            bool isSuccess = false;
+
+
+            using (var response = await _client.GetAsync(url+"/ApiLoggin/SearchCustomerByUserName?userName="+userName+"&password="+password))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    if (response.Equals(true))
+                    {
+                        isSuccess = true;
+                    }
+                }
+            }
+
+
+            return isSuccess;
+
         }
     }
 }
